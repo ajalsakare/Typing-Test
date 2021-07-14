@@ -18,7 +18,6 @@ t = datetime.now()
 updated_time = t + timedelta(seconds=60)
 # print(updated_time)
 
-words_copy = words_list
 score = count = total_chars = correctly_typed = 0
 
 print("\n\t\t\t\tWelcome to Typing Test\n")
@@ -33,16 +32,16 @@ while datetime.now() < updated_time:
         os.system('cls')
     else:
         os.system('clear')
-    print(f'\n\n\n\n\n\n\n\n\t\t\t\t\t{words_copy[:5]}\n\n')
+    print(f'\n\n\n\n\n\n\n\n\t\t\t\t\t{words_list[:5]}\n\n')
     word = input('\t\t\t\t\t')
     count += 1
     for w in word:
         total_chars += 1
-    if word in words_copy:
+    if word in words_list:
         score += 1
         for w in word:
             correctly_typed += 1
-        words_copy.remove(word)
+        words_list.remove(word)
 
 print(f'\n\n\t\t\t\t\tYou got {score}/{count}')
 print(f'\n\t\t\t\t\tTotal characters typed: {total_chars}\tCorrectly typed characters: {correctly_typed}')
